@@ -1,16 +1,19 @@
-import createTheme from "../../createTheme";
+import createTheme from "../../createTheme"
 
-const colors = {
-  primary: "white",
-  secondary: "#1F2022", // almost black w/ blueish tint
-  tertiary: "#fc300f", // bright red
-  quaternary: "#CECECE" // pale gray
-};
+export const colors = {
+  primary: "#F8F8F8",
+  secondary: "#1F2022",
+  tertiary: "#657582",
+  quaternary: "#B4C2CD"
+}
 
-const theme = createTheme(colors, {
-    primary: "Montserrat",
-    secondary: "Helvetica"
-  }, {
+const theme = createTheme(
+  colors,
+  {
+    primary: "Fira Code",
+    secondary: "Inconsolata"
+  },
+  {
     progress: {
       pacmanTop: {
         background: colors.quaternary
@@ -25,34 +28,38 @@ const theme = createTheme(colors, {
     components: {
       heading: {
         h1: {
-          fontSize: '4rem',
-          textTransform: 'uppercase'
+          fontSize: "4.5rem",
+          fontWeight: 700,
+          margin: "0 0 2rem"
         },
         h2: {
-          fontSize: '3.5rem',
-          textTransform: 'uppercase'
+          fontSize: "3rem",
+          fontWeight: 600,
+          margin: "0 0 2rem"
         },
         h3: {
-          fontSize: '3rem',
-          textTransform: 'uppercase'
+          fontSize: "2.5rem",
+          fontWeight: 500,
+          margin: "0 0 2rem"
         },
         h4: {
-          fontSize: '2.5rem',
-          textTransform: 'uppercase'
+          fontSize: "2rem",
+          fontWeight: 500
         },
         h5: {
-          fontSize: '2rem',
-          textTransform: 'uppercase'
+          fontSize: "1.4rem",
+          fontWeight: 500
         },
         h6: {
-          fontSize: '1.5rem',
-          textTransform: 'uppercase'
+          fontSize: "1rem",
+          fontWeight: 500
         }
       },
       codePane: {
-        fontSize: '2rem'
+        fontSize: "2rem"
       }
     }
-  });
+  }
+)
 
-export default theme;
+export default theme

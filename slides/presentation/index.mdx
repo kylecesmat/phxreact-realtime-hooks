@@ -1,49 +1,121 @@
-import UIExampleImage from '../assets/wss-ui-example.jpg';
-import StateOverview from '../assets/state-overview.png';
-import InterfaceDemo from "./components/InterfaceDemo.jsx";
+import UIExampleImage from "../assets/wss-ui-example.jpg"
+import StateOverview from "../assets/state-overview.png"
+import SpongebobHooks from "../assets/Fish_Hooks_Park.png"
+import InterfaceDemo from "./components/InterfaceDemo.jsx"
 
-# Realtime Web Apps With Websockets + Hooks
-## Kyle Cesmat
-Software Engineer at Formidable
+import { DarkSlide, CodeSlide } from "./slides"
+import { Image } from "spectacle"
+
+# Realtime Web Applications With Websockets + Hooks
+
+<br />
+<br />
+<br />
+
+### Kyle Cesmat - Software Engineer at Formidable
+
 ---
-### The Challenge
-* UI with ~6 realtime websocket interfaces
-* Some of these components are charts/graphs with many DOM nodes
-* 300ms render target
-* Maintain performance
+
+## The Challenge ⚡️
+
+- UI with ~6 realtime websocket interfaces
+- Some of these components are charts/graphs with many DOM nodes
+- 300ms render target
+- Maintain performance 📈
+
 ---
-<InterfaceDemo />
+
+## <InterfaceDemo />
+
 ---
-Epillepisy inducing warning
+
+export default DarkSlide
+
+## Epilepsy inducing warning
+
 ---
-<InterfaceDemo isFlashing={true} isRandom={true}/>
+
+## <InterfaceDemo isFlashing={true} isRandom={true}/>
+
 ---
-### Where we landed
+
+## Where we landed
+
 - Websocket connections update singular store
-- Use rxjs to 'scan' for updates every 300ms
+- Use rxjs to 'scan' for updates every 300ms 👾
 - Singular `setState` call, triggering update to components
+
 ---
-<img src={StateOverview} height="100%" width="100%"/>
+
+<Image src={StateOverview} style={{ maxHeight: "1000px" }} />
+
 ---
-<InterfaceDemo isFlashing={true}/>
+
+## <InterfaceDemo isFlashing={true}/>
+
 ---
-### Lessons learned
-- Requires _all_ sockets to be opened if you only want one entity
+
+## Lessons learned
+
+- Requires _all_ sockets to be opened
 - Doesn't scale well, we're setting a lot of state at once
-- We can take advantage of hooks now that it's shipped 🎣
+- We can now take advantage of hooks 🎉 🎣
+
 ---
-### What are hooks?
-- They let you use state and other React features without writing a class.
+
+export default DarkSlide
+
+<Image src={SpongebobHooks} style={{ maxHeight: "1000px" }} />
+
+---
+
+## What are hooks?
+
+- They let you use state and other React features without writing a class
 - Provides _opinions_ about managing state
 - Extensible, functional, and will blow your mind
 
-*** Show Image of spongebob hooks ***
 ---
-SHOW SIMPLE HOOKS example
+
+export default CodeSlide
+
+```javascript
+import { useRef, useState, useEffect } from "react"
+
+function App() {
+  const [hoverRef, isHovered] = useHover()
+  return <div ref={hoverRef}>{isHovered ? "YES" : "NO"}</div>
+}
+
+function useHover() {
+  const [value, setValue] = useState(false)
+  const ref = useRef(null)
+  const handleMouseOver = () => setValue(true)
+  const handleMouseOut = () => setValue(false)
+
+  useEffect(() => {
+    if (ref.current) {
+      node.addEventListener("mouseover", handleMouseOver)
+      node.addEventListener("mouseout", handleMouseOut)
+      return () => {
+        node.removeEventListener("mouseover", handleMouseOver)
+        node.removeEventListener("mouseout", handleMouseOut)
+      }
+    }
+  }, [ref.current])
+
+  return [ref, value]
+}
+```
+
 ---
-### useWebsocket
+
+## 💻 Demo 👀
+
+<br />
+
+### useWebsocket & useImmutableReducer
+
 ---
-### useImmutableReducer
-*** cite brandon ***
----
-### Demo!
+
+### Wrap up
