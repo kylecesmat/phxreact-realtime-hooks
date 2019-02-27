@@ -13,9 +13,9 @@ const App = () => {
         <label htmlFor="currencies">Select a currency to subscribe to</label>
         <select
           id="currencies"
-          onChange={e => {
-            setCurrencies(currencies.concat(e.target.value));
-          }}
+          onChange={({ target: { value: selectedCurrency } }) =>
+            setCurrencies(val => val.concat(selectedCurrency))
+          }
         >
           <option key="default">Select a currency below</option>
           {availableCurrencies.map(
@@ -32,9 +32,9 @@ const App = () => {
         <Subscription
           key={currency}
           currency={currency}
-          cancelSubscription={() => {
-            setCurrencies(currencies.filter(curr => curr !== currency));
-          }}
+          cancelSubscription={() =>
+            setCurrencies(val => val.filter(curr => curr !== currency))
+          }
         />
       ))}
     </div>

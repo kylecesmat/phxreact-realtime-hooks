@@ -2,9 +2,10 @@ import UIExampleImage from "../assets/wss-ui-example.jpg"
 import StateOverview from "../assets/state-overview.png"
 import SpongebobHooks from "../assets/Fish_Hooks_Park.png"
 import InterfaceDemo from "./components/InterfaceDemo.jsx"
+import Formidabrand from "../assets/Formidable.png"
 
 import { DarkSlide, CodeSlide } from "./slides"
-import { Image } from "spectacle"
+import { Image, Notes } from "spectacle"
 
 # Realtime Web Applications With Websockets + Hooks
 
@@ -14,6 +15,32 @@ import { Image } from "spectacle"
 
 ### Kyle Cesmat - Software Engineer at Formidable
 
+<Notes>
+  <ul>
+    <li>Recent project</li>
+    <li>Who's using hooks? production?</li>
+  </ul>
+</Notes>
+
+---
+
+<Image src={Formidabrand} style={{ maxHeight: "1000px" }} />
+
+#### An expert team of engineers helping to build the modern web
+
+<br />
+<br />
+
+#### @FormidableLabs
+
+<Notes>
+  <ul>
+    <li>Fortune 100 teams & startups scaling their org</li>
+    <li>Level-up teams, scale codebases, performance auditing</li>
+    <li>hiring node/react engineers</li>
+  </ul>
+</Notes>
+
 ---
 
 ## The Challenge ⚡️
@@ -22,10 +49,25 @@ import { Image } from "spectacle"
 - Some of these components are charts/graphs with many DOM nodes
 - 300ms render target
 - Maintain performance 📈
+- Homegrown websocket protocol
+
+<Notes>
+  <ul>
+    <li>Recent project challenge</li>
+    <li>Websockets are tough</li>
+    <li>UX is crucial</li>
+  </ul>
+</Notes>
 
 ---
 
 ## <InterfaceDemo />
+
+<Notes>
+  <ul>
+    <li>what we're building</li>
+  </ul>
+</Notes>
 
 ---
 
@@ -37,6 +79,13 @@ export default DarkSlide
 
 ## <InterfaceDemo isFlashing={true} isRandom={true}/>
 
+<Notes>
+  <ul>
+    <li>updates between 100ms - 600ms</li>
+    <li>many connections & UX</li>
+  </ul>
+</Notes>
+
 ---
 
 ## Where we landed
@@ -45,6 +94,13 @@ export default DarkSlide
 - Use rxjs to 'scan' for updates every 300ms 👾
 - Singular `setState` call, triggering update to components
 
+<Notes>
+  <ul>
+    <li>ship quickly, prove core technologies</li>
+    <li>we can always improve</li>
+  </ul>
+</Notes>
+
 ---
 
 <Image src={StateOverview} style={{ maxHeight: "1000px" }} />
@@ -52,6 +108,13 @@ export default DarkSlide
 ---
 
 ## <InterfaceDemo isFlashing={true}/>
+
+<Notes>
+  <ul>
+    <li>not all nodes update if data is equal</li>
+    <li>throttled at 300ms updates</li>
+  </ul>
+</Notes>
 
 ---
 
@@ -108,6 +171,15 @@ function useHover() {
 }
 ```
 
+<Notes>
+  <ul>
+    <li>state updates are shallow</li>
+    <li>reuseable functions w/ lifecycle methods</li>
+    <li>updater uses object.is() checks</li>
+    <li>reach for `useReducer` if needed</li>
+  </ul>
+</Notes>
+
 ---
 
 ## 💻 Demo 👀
@@ -118,4 +190,8 @@ function useHover() {
 
 ---
 
-### Wrap up
+## Hope You're Hooked 🎉
+
+<br />
+
+#### @kylecesmat
